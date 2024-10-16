@@ -10,11 +10,11 @@ class CreateMovie(BaseModel):
     rating: int = Field(ge=0, le=10)
 
 class UpdateMovie(BaseModel):
-    title: str = None
-    year: int = None
-    director: str = None
-    length: time = None
-    rating: int = None
+    title: str | None =  Field(max_length=100)
+    year: int | None = Field(ge=1900, le=2100)
+    director: str | None = Field(max_length=100)
+    length: time | None
+    rating: int | None = Field(ge=0, le=10)
 
 class GetMovie(BaseModel):
     id: int
